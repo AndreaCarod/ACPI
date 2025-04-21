@@ -1,0 +1,38 @@
+from microbit import *
+import radio
+
+N = 1
+E = 2
+S = 3
+W = 4
+
+#"juego"calibrar la brujula
+#compass.calibrate()
+radio.config(group=23) 
+radio.on()
+
+while True:
+#  direction = compass.heading()
+#   
+#  if 315 <= direction < 360 or 0 <= direction < 45:
+#    radio.config(group=N)
+#    display.show("N")
+#  elif 45 <= direction < 135:
+#    radio.config(group=E)
+#    display.show("E")
+#  elif 135 <= direction < 225:
+#    radio.config(group=S)
+#    display.show("S")
+#  elif 225 <= direction < 315:
+#    radio.config(group=W)
+#    display.show("W")
+
+  message = radio.receive()
+  if message == '1':
+    pin1.write_digital(0) #apagar
+    display.show(Image.NO)
+
+  elif message == '2':
+    pin1.write_digital(1) #encender 
+    display.show(Image.YES)
+
